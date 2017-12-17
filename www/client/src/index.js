@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CelebrityJokes from './components/CelebrityJokes';
-import FoodJokes from './components/FoodJokes';
+import Bets from './components/Bets';
 import { Router, Route, browserHistory } from 'react-router';
 
 const Root = () => {
   return (
     <div className="container">
       <Router history={browserHistory}>
-        <Route path="/" component={FoodJokes}/>
-        <Route path="/special" component={CelebrityJokes}/>
+        <Route path="/" component={Bets}/>
+        <Route path="/open" component={Bets}/>
       </Router>
     </div>
   )

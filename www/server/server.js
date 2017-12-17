@@ -13,16 +13,16 @@ app.use(cors());
 app.get('/api/bets/nfl', (req, res) => {
   let bets = [
     {
-      id: 0001,
+      id: '0001',
       game_description: "Baltimore Ravens vs. Pittsburgh Steelers",
-      odd_1: 3.1,
-      odd_2: 1.37
+      odd_1: '3.1',
+      odd_2: '1.37'
     },
     {
-      id: 0002,
+      id: '0002',
       game_description: "Miami Dolphins vs. New England Patriots",
-      odd_1: 5.25,
-      odd_2: 1
+      odd_1: '5.25',
+      odd_2: '1.0'
     }
   ];
   res.json(bets);
