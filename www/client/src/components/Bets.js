@@ -26,10 +26,8 @@ class Bets extends Component {
         web3: results.web3
       })
 
-      console.log("huwhat");
-
       // Instantiate contract once web3 provided.
-      //this.instantiateContract()
+      this.instantiateContract()
     })
       .catch(() => {
         console.log('Error finding web3.')
@@ -53,24 +51,39 @@ class Bets extends Component {
     return App.markAdopted();
     App.contracts.Adoption.setProvider(App.web3Provider);
     return App.bindEvents();*/
+    console.log("instantiateContract()");
 
     const contract = require('truffle-contract')
     const simpleStorage = contract(SimpleStorageContract)
     simpleStorage.setProvider(this.state.web3.currentProvider)
+    //dirty hack for web3@1.0.0 support for localhost testrpc, see https://github.com/trufflesuite/truffle-contract/issues/56#issuecomment-331084530
+    if (typeof simpleStorage.currentProvider.sendAsync !== "function") {
+      simpleStorage.currentProvider.sendAsync = function () {
+        return simpleStorage.currentProvider.send.apply(
+          simpleStorage.currentProvider, arguments
+        );
+      };
+    }
 
+    //console.log(simpleStorage)
+    //console.log(this.state.web3.currentProvider)
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance
 
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
+      console.log("web3.eth.getAccounts()  = " + accounts[0]);
       simpleStorage.deployed().then((instance) => {
         simpleStorageInstance = instance
+
+        //console.log("simpleStorage.deployed() = true");
 
         // Stores a given value, 5 by default.
         return simpleStorageInstance.set(5, { from: accounts[0] })
       }).then((result) => {
+
         // Get the value from the contract to prove it worked.
-        return simpleStorageInstance.get.call(accounts[0])
+        return simpleStorageInstance.get.call({from: accounts[0]})
       }).then((result) => {
         // Update state with the result.
         return this.setState({ storageValue: result.c[0] })
