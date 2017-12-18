@@ -3,6 +3,7 @@ import Nav from './Nav';
 import SimpleStorageContract from '../truffle/build/contracts/SimpleStorage.json'
 import { getNflBetsApi } from '../utils/bets-api';
 import getWeb3 from '../utils/getWeb3'
+import { default as contract } from 'truffle-contract'
 
 
 class Bets extends Component {
@@ -13,7 +14,8 @@ class Bets extends Component {
     this.state = {
       bets: [],
       storageValue: 0,
-      web3: null
+      web3: null,
+      simpleStorage: null
     };
   }
 
@@ -41,19 +43,8 @@ class Bets extends Component {
      * Normally these functions would be called in the context of a
      * state management library, but for convenience I've placed them here.
      */
-
-    /*var AdoptionArtifact = data;
-    App.contracts.Adoption = TruffleContract(AdoptionArtifact);
-
-    // Set the provider for our contract
-
-    // Use our contract to retrieve and mark the adopted pets
-    return App.markAdopted();
-    App.contracts.Adoption.setProvider(App.web3Provider);
-    return App.bindEvents();*/
     console.log("instantiateContract()");
 
-    const contract = require('truffle-contract')
     const simpleStorage = contract(SimpleStorageContract)
     simpleStorage.setProvider(this.state.web3.currentProvider)
     //dirty hack for web3@1.0.0 support for localhost testrpc, see https://github.com/trufflesuite/truffle-contract/issues/56#issuecomment-331084530
@@ -65,8 +56,9 @@ class Bets extends Component {
       };
     }
 
-    //console.log(simpleStorage)
-    //console.log(this.state.web3.currentProvider)
+    //Set simpleStorage state var so we can use it elsewhere
+    this.setState({simpleStorage: simpleStorage});
+
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance
 
@@ -83,7 +75,7 @@ class Bets extends Component {
       }).then((result) => {
 
         // Get the value from the contract to prove it worked.
-        return simpleStorageInstance.get.call({from: accounts[0]})
+        return simpleStorageInstance.get.call({ from: accounts[0] })
       }).then((result) => {
         // Update state with the result.
         return this.setState({ storageValue: result.c[0] })
@@ -105,6 +97,28 @@ class Bets extends Component {
     console.log("Place Bet - onClick");
     console.log("bet.id = " + id + " / odd_1 = " + odd_1 + " / odd_2 " + odd_2);
     //web3 make tx and pass these params
+
+    var simpleStorageInstance
+
+    // Get accounts.
+    this.state.web3.eth.getAccounts((error, accounts) => {
+      console.log("web3.eth.getAccounts()  = " + accounts[0]);
+      this.state.simpleStorage.deployed().then((instance) => {
+        simpleStorageInstance = instance
+
+        //console.log("simpleStorage.deployed() = true");
+
+        // Stores a given value, 5 by default.
+        return simpleStorageInstance.set(id, { from: accounts[0] })
+      }).then((result) => {
+
+        // Get the value from the contract to prove it worked.
+        return simpleStorageInstance.get.call({ from: accounts[0] })
+      }).then((result) => {
+        // Update state with the result.
+        return this.setState({ storageValue: result.c[0] })
+      })
+    })
   }
 
   render() {
