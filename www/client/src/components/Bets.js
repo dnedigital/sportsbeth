@@ -15,6 +15,8 @@ class Bets extends Component {
       bets: [],
       storageValue: 0,
       web3: null,
+      web3_account: null,
+      web3_balance: 0.0,
       simpleStorage: null
     };
   }
@@ -24,16 +26,13 @@ class Bets extends Component {
     // See utils/getWeb3 for more info.
 
     getWeb3.then(results => {
-      this.setState({
-        web3: results.web3
-      })
+      this.setState({ web3: results.web3  })
 
       // Instantiate contract once web3 provided.
       this.instantiateContract()
+    }).catch(() => {  
+      console.log('Error finding web3.')  
     })
-      .catch(() => {
-        console.log('Error finding web3.')
-      })
   }
 
   instantiateContract() {
@@ -62,9 +61,17 @@ class Bets extends Component {
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance
 
+
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
       console.log("web3.eth.getAccounts()  = " + accounts[0]);
+      this.setState ({
+        web3_account: accounts[0]
+      })
+
+      // Get user balance via web3
+      this.getWeb3Balance()
+
       simpleStorage.deployed().then((instance) => {
         simpleStorageInstance = instance
 
@@ -80,6 +87,21 @@ class Bets extends Component {
         // Update state with the result.
         return this.setState({ storageValue: result.c[0] })
       })
+    })
+  }
+
+  getWeb3Balance() {
+    var web3 = this.state.web3
+    var address = this.state.web3_account
+    return web3.eth.getBalance(address, (error, result) => {
+      if (!error) {
+        var balance = web3.utils.fromWei(result, "ether")
+        console.log(balance)
+
+        this.setState({ web3_balance: balance })
+      } else {
+        console.error(error);
+      }
     })
   }
 
@@ -127,7 +149,7 @@ class Bets extends Component {
 
     return (
       <div>
-        <Nav />
+        <Nav web3_balance= { this.state.web3_balance } />
         <h3 className="text-center">Available Betting Lines</h3>
         <hr />
 
