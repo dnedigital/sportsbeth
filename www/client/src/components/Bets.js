@@ -26,12 +26,12 @@ class Bets extends Component {
     // See utils/getWeb3 for more info.
 
     getWeb3.then(results => {
-      this.setState({ web3: results.web3  })
+      this.setState({ web3: results.web3 })
 
       // Instantiate contract once web3 provided.
       this.instantiateContract()
-    }).catch(() => {  
-      console.log('Error finding web3.')  
+    }).catch(() => {
+      console.log('Error finding web3.')
     })
   }
 
@@ -56,7 +56,7 @@ class Bets extends Component {
     }
 
     //Set simpleStorage state var so we can use it elsewhere
-    this.setState({simpleStorage: simpleStorage});
+    this.setState({ simpleStorage: simpleStorage });
 
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance
@@ -65,7 +65,7 @@ class Bets extends Component {
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
       console.log("web3.eth.getAccounts()  = " + accounts[0]);
-      this.setState ({
+      this.setState({
         web3_account: accounts[0]
       })
 
@@ -149,19 +149,17 @@ class Bets extends Component {
 
     return (
       <div>
-        <Nav web3_balance= { this.state.web3_balance } />
+        <Nav web3_balance={this.state.web3_balance} />
         <h3 className="text-center">Available Betting Lines</h3>
         <hr />
 
         <main className="container">
           <div className="pure-g">
             <div className="pure-u-1-1">
-              <h1>Good to Go!</h1>
-              <p>Your Truffle Box is installed and ready.</p>
-              <h2>Smart Contract Example</h2>
-              <p>If your contracts compiled and migrated successfully, below will show a stored value of 5 (by default).</p>
-              <p>Try changing the value stored on <strong>line 59</strong> of App.js.</p>
-              <p>The stored value is: {this.state.storageValue}</p>
+              <h1>Welcome to SportsBeth!</h1>
+              <p>We help enable easy and feeless betting enabled by the ethereum blockchain!</p>
+              <p>Just select your betting line below, and we will automatically generate a transaction to send your bet to our smart contract!</p>
+              <p>It's easy and you can check your open bets at any time by selecting "Open Bets" in the navbar!</p>
             </div>
           </div>
         </main>

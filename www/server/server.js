@@ -10,7 +10,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/api/bets/nfl', (req, res) => {
+// API key for phil@dne.digital from The Odds API
+// 49d5d089fdc357ddc70392ef641c7dfd
+
+apiKey = '49d5d089fdc357ddc70392ef641c7dfd'
+
+app.get('v2/odds/?sport=UPCOMING&region=uk&apiKey=' + apiKey, (req, res) => {
   let bets = [
     {
       id: '0001',
@@ -23,6 +28,12 @@ app.get('/api/bets/nfl', (req, res) => {
       game_description: "Miami Dolphins vs. New England Patriots",
       odd_1: '5.25',
       odd_2: '1.0'
+    },
+    {
+      id: '0003',
+      game_description: "Denver Broncos vs. Indianapolis Colts",
+      odd_1: '1.81',
+      odd_2: '2.05' 
     }
   ];
   res.json(bets);
