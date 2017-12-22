@@ -8,16 +8,27 @@ class Nav extends Component {
     super(props)
 
     this.state = {
+      etherscanAddress: "https://etherscan.io/address/",
       web3_account: null,
       web3_balance: null
     };
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({ web3_balance: newProps.web3_balance });
+    this.setState({ 
+      web3_account: newProps.web3_account, 
+      web3_balance: newProps.web3_balance 
+    });
+
+    if (newProps.web3_account !== null && this.state.web3_account === newProps.web3_account ){
+      this.setState({
+        etherscanAddress: (this.state.etherscanAddress + newProps.web3_account)
+      })
+    }
   }
 
   render() {
+    
     return (
       <nav className="navbar navbar-default">
         <div className="navbar-header">
@@ -33,7 +44,7 @@ class Nav extends Component {
         </ul>
 
         <ul className="nav navbar-nav navbar-right">
-          <li className="balance"><a href="https://etherscan.io/">ETH Balance : {this.state.web3_balance}</a></li>
+          <li className="balance"><a href={ this.state.etherscanAddress }>ETH Balance : {this.state.web3_balance}</a></li>
         </ul>
       </nav>
     );

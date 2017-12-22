@@ -131,7 +131,7 @@ class Bets extends Component {
         //console.log("simpleStorage.deployed() = true");
 
         // Stores a given value, 5 by default.
-        return simpleStorageInstance.set(id, { from: accounts[0] })
+        return simpleStorageInstance.set(odd_1, { from: accounts[0] })
       }).then((result) => {
 
         // Get the value from the contract to prove it worked.
@@ -149,7 +149,7 @@ class Bets extends Component {
 
     return (
       <div>
-        <Nav web3_balance= { this.state.web3_balance } />
+        <Nav web3_balance= { this.state.web3_balance } web3_account = { this.state.web3_account } />
         <h3 className="text-center">Available Betting Lines</h3>
         <hr />
 

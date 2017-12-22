@@ -1,5 +1,5 @@
 {
-    "name": "chuck-norris-jokes",
+    "name": "server.js",
     "version": "0.0.1",
     "description": "",
     "main": "server.js",
@@ -8,12 +8,13 @@
         "start": "node server.js",
         "dev": "nodemon server.js"
     },
-    "author": "Auth0",
+    "author": "DNE",
     "license": "MIT",
     "dependencies": {
         "body-parser": "^1.15.2",
         "cors": "^2.8.1",
         "express": "^4.14.0",
-        "express-jwt": "^3.4.0"
+        "express-jwt": "^3.4.0",
+        "request": "^2.83.0"
     }
 }
