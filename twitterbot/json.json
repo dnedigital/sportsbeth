@@ -1,0 +1,332 @@
+{
+    "success": true,
+    "data": {
+        "info": {
+            "display_name": "NFL",
+            "num_outcomes": "2",
+            "check_dt": 1515203720
+        },
+        "events": {
+            "Kansas City Chiefs_Tennessee Titans": {
+                "sport": "NFL",
+                "sport_display": "NFL",
+                "participants": [
+                    "Kansas City Chiefs",
+                    "Tennessee Titans"
+                ],
+                "home_team": "Kansas City Chiefs",
+                "commence": "1515274200",
+                "status": "Pending",
+                "sites": {
+                    "paddypower": {
+                        "odds": {
+                            "h2h": [
+                                "1.25",
+                                "4.10"
+                            ]
+                        },
+                        "last_update": 1515203444
+                    },
+                    "unibet": {
+                        "odds": {
+                            "h2h": [
+                                "1.23",
+                                "4.40"
+                            ]
+                        },
+                        "last_update": 1515203639
+                    },
+                    "pinnacle": {
+                        "odds": {
+                            "h2h": [
+                                "1.24",
+                                "4.55"
+                            ]
+                        },
+                        "last_update": 1515203681
+                    },
+                    "betfair": {
+                        "odds": {
+                            "h2h": [
+                                "1.25",
+                                "4.52"
+                            ],
+                            "h2h_lay": [
+                                "1.27",
+                                "4.90"
+                            ]
+                        },
+                        "last_update": 1515203682
+                    },
+                    "tonybet": {
+                        "odds": {
+                            "h2h": [
+                                "1.21",
+                                "4.40"
+                            ]
+                        },
+                        "last_update": 1515203713
+                    },
+                    "ladbrokes": {
+                        "odds": {
+                            "h2h": [
+                                "1.22",
+                                "4.50"
+                            ]
+                        },
+                        "last_update": 1515203717
+                    },
+                    "williamhill": {
+                        "odds": {
+                            "h2h": [
+                                "1.22",
+                                "4.40"
+                            ]
+                        },
+                        "last_update": 1515203718
+                    }
+                }
+            },
+            "Atlanta Falcons_Los Angeles Rams": {
+                "sport": "NFL",
+                "sport_display": "NFL",
+                "participants": [
+                    "Atlanta Falcons",
+                    "Los Angeles Rams"
+                ],
+                "home_team": "Los Angeles Rams",
+                "commence": "1515287700",
+                "status": "Pending",
+                "sites": {
+                    "paddypower": {
+                        "odds": {
+                            "h2h": [
+                                "2.87",
+                                "1.44"
+                            ]
+                        },
+                        "last_update": 1515203444
+                    },
+                    "unibet": {
+                        "odds": {
+                            "h2h": [
+                                "3.15",
+                                "1.38"
+                            ]
+                        },
+                        "last_update": 1515203639
+                    },
+                    "pinnacle": {
+                        "odds": {
+                            "h2h": [
+                                "3.16",
+                                "1.41"
+                            ]
+                        },
+                        "last_update": 1515203681
+                    },
+                    "betfair": {
+                        "odds": {
+                            "h2h": [
+                                "3.14",
+                                "1.41"
+                            ],
+                            "h2h_lay": [
+                                "3.35",
+                                "1.45"
+                            ]
+                        },
+                        "last_update": 1515203682
+                    },
+                    "tonybet": {
+                        "odds": {
+                            "h2h": [
+                                "3.05",
+                                "1.38"
+                            ]
+                        },
+                        "last_update": 1515203713
+                    },
+                    "ladbrokes": {
+                        "odds": {
+                            "h2h": [
+                                "3.10",
+                                "1.40"
+                            ]
+                        },
+                        "last_update": 1515203717
+                    },
+                    "williamhill": {
+                        "odds": {
+                            "h2h": [
+                                "3.05",
+                                "1.39"
+                            ]
+                        },
+                        "last_update": 1515203718
+                    }
+                }
+            },
+            "Buffalo Bills_Jacksonville Jaguars": {
+                "sport": "NFL",
+                "sport_display": "NFL",
+                "participants": [
+                    "Buffalo Bills",
+                    "Jacksonville Jaguars"
+                ],
+                "home_team": "Jacksonville Jaguars",
+                "commence": "1515348000",
+                "status": "Pending",
+                "sites": {
+                    "paddypower": {
+                        "odds": {
+                            "h2h": [
+                                "4.50",
+                                "1.22"
+                            ]
+                        },
+                        "last_update": 1515203444
+                    },
+                    "unibet": {
+                        "odds": {
+                            "h2h": [
+                                "4.35",
+                                "1.23"
+                            ]
+                        },
+                        "last_update": 1515203639
+                    },
+                    "pinnacle": {
+                        "odds": {
+                            "h2h": [
+                                "4.54",
+                                "1.24"
+                            ]
+                        },
+                        "last_update": 1515203681
+                    },
+                    "betfair": {
+                        "odds": {
+                            "h2h": [
+                                "4.52",
+                                "1.26"
+                            ],
+                            "h2h_lay": [
+                                "4.80",
+                                "1.28"
+                            ]
+                        },
+                        "last_update": 1515203682
+                    },
+                    "tonybet": {
+                        "odds": {
+                            "h2h": [
+                                "4.15",
+                                "1.23"
+                            ]
+                        },
+                        "last_update": 1515203713
+                    },
+                    "ladbrokes": {
+                        "odds": {
+                            "h2h": [
+                                "4.50",
+                                "1.22"
+                            ]
+                        },
+                        "last_update": 1515203717
+                    },
+                    "williamhill": {
+                        "odds": {
+                            "h2h": [
+                                "4.40",
+                                "1.22"
+                            ]
+                        },
+                        "last_update": 1515203718
+                    }
+                }
+            },
+            "Carolina Panthers_New Orleans Saints": {
+                "sport": "NFL",
+                "sport_display": "NFL",
+                "participants": [
+                    "Carolina Panthers",
+                    "New Orleans Saints"
+                ],
+                "home_team": "New Orleans Saints",
+                "commence": "1515360600",
+                "status": "Pending",
+                "sites": {
+                    "paddypower": {
+                        "odds": {
+                            "h2h": [
+                                "3.25",
+                                "1.36"
+                            ]
+                        },
+                        "last_update": 1515203444
+                    },
+                    "unibet": {
+                        "odds": {
+                            "h2h": [
+                                "3.45",
+                                "1.33"
+                            ]
+                        },
+                        "last_update": 1515203639
+                    },
+                    "pinnacle": {
+                        "odds": {
+                            "h2h": [
+                                "3.45",
+                                "1.36"
+                            ]
+                        },
+                        "last_update": 1515203681
+                    },
+                    "betfair": {
+                        "odds": {
+                            "h2h": [
+                                "3.42",
+                                "1.35"
+                            ],
+                            "h2h_lay": [
+                                "3.70",
+                                "1.39"
+                            ]
+                        },
+                        "last_update": 1515203682
+                    },
+                    "tonybet": {
+                        "odds": {
+                            "h2h": [
+                                "3.55",
+                                "1.30"
+                            ]
+                        },
+                        "last_update": 1515203713
+                    },
+                    "ladbrokes": {
+                        "odds": {
+                            "h2h": [
+                                "3.40",
+                                "1.33"
+                            ]
+                        },
+                        "last_update": 1515203717
+                    },
+                    "williamhill": {
+                        "odds": {
+                            "h2h": [
+                                "3.40",
+                                "1.33"
+                            ]
+                        },
+                        "last_update": 1515203718
+                    }
+                }
+            }
+        }
+    }
+}
